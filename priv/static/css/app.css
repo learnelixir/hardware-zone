@@ -1,0 +1,55 @@
+body {
+  padding: 50px 15px;
+}
+
+div.hardware-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 135px;
+  background: #efefef;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+div.hardware-box div.title {
+  font-weight: bold;
+  font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+}
+
+div.hardware-box div.manufacturer {
+  color: #999;
+}
+
+div.hardware-box div.description {
+  margin-top: 10px;
+  height: 60px;
+  overflow: hidden;
+}
+
+div#error_explanation {
+  background: #BA5353;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+div#error_explanation div.error-title {
+  padding: 0;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: -10px;
+  margin-top: -10px;
+  margin-right: -10px;
+  padding: 10px;
+  background: #AD2020;
+  border-radius: 5px 5px 0 0;
+}
+
+div#error_explanation ul {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
