@@ -1,0 +1,22 @@
+<br/>
+<a href='<%= HardwareZone.Router.hardwares_path(:index) %>'>&larr; List of Hardwares</a>
+
+<h1><%= @hardware.name %></h1>
+
+<span class='manufacturer'><%= @hardware.manufacturer %></span>
+
+<br/>
+<div class='description'><%= @hardware.description %></div>
+
+<%= if @hardware.sale_contact_number do %>
+  Want to buy, contact me at: <%= @hardware.sale_contact_number %>
+<% end %>
+<br/><br/>
+
+<a href='<%= HardwareZone.Router.hardwares_path(:edit, @hardware.id) %>' 
+   class='btn btn-primary'>Edit</a> 
+&nbsp; 
+<a href='<%= HardwareZone.Router.hardwares_path(:destroy, @hardware.id) %>' 
+   class='btn btn-danger'
+   data-confirm="Are you sure that you want to delete this hardware?" 
+   data-method="DELETE">Remove</a>

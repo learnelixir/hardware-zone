@@ -1,0 +1,3 @@
+<h2>New Hardware</h2>
+<br/>
+<%= render "form.html", hardware: @hardware %>
