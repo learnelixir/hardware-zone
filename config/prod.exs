@@ -12,7 +12,7 @@ use Mix.Config
 config :phoenix, HardwareZone.Router,
   port: System.get_env("PORT"),
   ssl: false,
-  host: "example.com",
+  host: "stark-sands-7697.herokuapp.com",
   cookies: true,
   session_key: "_hardware_zone_key",
   session_secret: "VQP)JU1Z7*5L+^09X*L=6RKN9R1HL0O2E7^(1B%V3W64Z7@J9^7(M&TXW8*C)IRW!N=)D40XZ&K+^XBQ1"

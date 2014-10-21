@@ -51,7 +51,6 @@ defmodule HardwareZone.HardwaresController do
             Repo.update(hardware)
             redirect conn, Router.hardwares_path(:show, hardware.id)
           errors -> 
-            IO.puts (inspect errors)
             render conn, "edit", hardware: hardware, errors: errors
         end
       _ ->
