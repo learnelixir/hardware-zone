@@ -19,7 +19,7 @@
   enctype="multipart/form-data">
 
   <%= if @hardware.id do %> 
-    <input type="hidden" name="_method" value="PUT" />
+    <input type="hidden" name="_method" value="PATCH" />
   <% end %>
 
   <div class="form-group">
