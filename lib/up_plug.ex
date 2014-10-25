@@ -41,12 +41,10 @@ defmodule UpPlug do
         attachment_container_relative_path(model, attribute_name)], "/")
   end
 
-  def process_upload_plug(up_plug, repo) do
+  def process_upload_plug(up_plug) do
     model = assign_file_information(up_plug)
     up_plug = Map.put(up_plug, :model, model)
     post_process_file(up_plug)
-    IO.puts(inspect model)
-    repo.update(model)
     up_plug.model
   end
 

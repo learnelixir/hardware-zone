@@ -79,17 +79,14 @@ defmodule HardwareZone.HardwaresController do
   defp upload_photo_attachment(hardware, params, attachment_attribute_name) do
     if (params[attachment_attribute_name] != nil and \
           String.length(params[attachment_attribute_name].filename) > 0) do
-      IO.puts (inspect hardware)
       hardware = UpPlug.process_upload_plug(%UpPlug{
         model: hardware,
         plug: params[attachment_attribute_name],
         attribute_name: attachment_attribute_name,
         styles: %{ thumb: "100x100>", large: "300x300>" }
-      }, Repo)
+      })
       hardware = Map.delete(hardware, :photo)
-      IO.puts(inspect hardware)
       result = Repo.update(hardware)
-      IO.puts result
     end
   end
 end
