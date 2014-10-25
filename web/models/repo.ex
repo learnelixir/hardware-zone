@@ -2,8 +2,7 @@ defmodule HardwareZone.Repo do
   use Ecto.Repo, adapter: Ecto.Adapters.Postgres
 
   def conf do
-    # parse_url "ecto://postgresuser:postgrespassword@127.0.0.1/hardware_zone"
-    parse_url "ecto://james:@127.0.0.1/hardware_zone"
+    parse_url "ecto://gnukdiprjdibvv:MObPUSRcFM6omOjNZPsAp6OLFU@ec2-54-197-250-40.compute-1.amazonaws.com/d9v5t7afd4osse"
   end
 
   def priv do
