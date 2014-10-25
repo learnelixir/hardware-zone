@@ -23,6 +23,11 @@
   <% end %>
 
   <div class="form-group">
+    <label for="hardware[photo]">Photo</label>
+    <input type="file" name="hardware[photo]" class="form-control" />
+  </div>
+
+  <div class="form-group">
     <label for="hardware[name]">Name</label>
     <input type="text" name="hardware[name]" class="form-control" value='<%= @hardware.name %>'/>
   </div>

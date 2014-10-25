@@ -4,8 +4,12 @@ defmodule HardwareZone.Hardware do
 
   schema "hardwares" do
     field :name, :string
-    field :description
-    field :manufacturer
-    field :sale_contact_number
+    field :description, :string
+    field :manufacturer, :string
+    field :sale_contact_number, :string
+    field :photo_file_name, :string
+    field :photo_file_size, :integer
+    field :photo_updated_at, :datetime
+    field :photo_content_type, :string
   end
 end

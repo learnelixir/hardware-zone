@@ -5,7 +5,7 @@ body {
 div.hardware-box {
   border: 1px solid #ccc;
   padding: 10px;
-  height: 135px;
+  height: 235px;
   background: #efefef;
   margin-top: 30px;
   cursor: pointer;
@@ -26,6 +26,7 @@ div.hardware-box div.description {
   margin-top: 10px;
   height: 60px;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 div#error_explanation {

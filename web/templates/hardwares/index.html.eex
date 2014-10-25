@@ -5,6 +5,7 @@
         <div class='title'><%= hardware.name %></div>
         <div class='manufacturer'><%= hardware.manufacturer %></div>
         <div class='description'><%= hardware.description %></div>
+        <div class='photo'><img src='<%= UpPlug.attachment_url_for(hardware, :photo, :thumb, "/images/no_photo_thumb.png")  %>' /></div>
       </div>
     </div>
   <% end %>

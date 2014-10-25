@@ -2,15 +2,24 @@
 <a href='<%= HardwareZone.Router.hardwares_path(:index) %>'>&larr; List of Hardwares</a>
 
 <h1><%= @hardware.name %></h1>
+<div class="row">
 
-<span class='manufacturer'><%= @hardware.manufacturer %></span>
+  <div class="col-sm-6"> 
+    <span class='manufacturer'><%= @hardware.manufacturer %></span>
 
-<br/>
-<div class='description'><%= @hardware.description %></div>
+    <br/>
+    <div class='description'><%= @hardware.description %></div>
 
-<%= if @hardware.sale_contact_number do %>
-  Want to buy, contact me at: <%= @hardware.sale_contact_number %>
-<% end %>
+    <%= if @hardware.sale_contact_number do %>
+      Want to buy, contact me at: <%= @hardware.sale_contact_number %>
+    <% end %>
+    <br/><br/>
+  </div>
+
+  <div class="col-sm-6">
+    <img src='<%= UpPlug.attachment_url_for(@hardware, :photo, :large, "/images/no_photo_large.png") %>' />
+  </div>
+</div>
 <br/><br/>
 
 <a href='<%= HardwareZone.Router.hardwares_path(:edit, @hardware.id) %>' 

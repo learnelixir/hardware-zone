@@ -14,10 +14,12 @@ defmodule HardwareZone.HardwaresController do
   end
 
   def create(conn, %{"hardware" => params}) do
-    hardware = Map.merge(%Hardware{}, atomize_keys(params))
+    atomized_keys_params = atomize_keys(params)
+    hardware = Map.merge(%Hardware{}, atomized_keys_params)
     case Hardware.validate(hardware) do
       [] ->
         hardware = Repo.insert(hardware)
+        upload_photo_attachment(hardware, atomized_keys_params, :photo)
         redirect conn, Router.hardwares_path(:show, hardware.id)
       errors ->
         render conn, "new", hardware: hardware, errors: errors
@@ -45,10 +47,12 @@ defmodule HardwareZone.HardwaresController do
   def update(conn, %{"id" => id, "hardware" => params}) do
     case Repo.get(Hardware, String.to_integer(id)) do
       hardware when is_map(hardware) ->
-        hardware = Map.merge(hardware, atomize_keys(params))
+        atomized_keys_params = atomize_keys(params)
+        hardware = Map.merge(hardware, atomized_keys_params)
         case Hardware.validate(hardware) do
           [] -> 
             Repo.update(hardware)
+            upload_photo_attachment(hardware, atomized_keys_params, :photo)
             redirect conn, Router.hardwares_path(:show, hardware.id)
           errors -> 
             render conn, "edit", hardware: hardware, errors: errors
@@ -70,5 +74,21 @@ defmodule HardwareZone.HardwaresController do
   
   defp atomize_keys(struct) do
     Enum.reduce struct, %{}, fn({k, v}, map) -> Map.put(map, String.to_atom(k), v) end
+  end
+
+  defp upload_photo_attachment(hardware, params, attachment_attribute_name) do
+    if params[attachment_attribute_name] do
+      IO.puts (inspect hardware)
+      hardware = UpPlug.process_upload_plug(%UpPlug{
+        model: hardware,
+        plug: params[attachment_attribute_name],
+        attribute_name: attachment_attribute_name,
+        styles: %{ thumb: "100x100>", large: "300x300>" }
+      }, Repo)
+      hardware = Map.delete(hardware, :photo)
+      IO.puts(inspect hardware)
+      result = Repo.update(hardware)
+      IO.puts result
+    end
   end
 end
