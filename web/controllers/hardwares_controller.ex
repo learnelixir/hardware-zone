@@ -77,7 +77,8 @@ defmodule HardwareZone.HardwaresController do
   end
 
   defp upload_photo_attachment(hardware, params, attachment_attribute_name) do
-    if params[attachment_attribute_name] do
+    if (params[attachment_attribute_name] != nil and \
+          String.length(params[attachment_attribute_name].filename) > 0) do
       IO.puts (inspect hardware)
       hardware = UpPlug.process_upload_plug(%UpPlug{
         model: hardware,
