@@ -2,5 +2,8 @@
 /deps
 erl_crash.dump
 *.ez
+<<<<<<< HEAD
 .DS_Store
 priv/static/system
+=======
+>>>>>>> 56d655e57b5bf4c27e6003f5d6ecafe5564b5353

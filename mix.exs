@@ -25,11 +25,11 @@ defmodule HardwareZone.Mixfile do
   defp deps do
     [
       {:phoenix, "0.4.1"},
-      {:plug, "~> 0.7"},
-      {:mogrify, "~> 0.1"},
       {:cowboy, "~> 1.0.0"},
       {:postgrex, "~> 0.5"},
       {:ecto, "~> 0.2.0"},
+      {:plug, "~> 0.7"},
+      {:mogrify, "~> 0.1"}
     ]
   end
 end
