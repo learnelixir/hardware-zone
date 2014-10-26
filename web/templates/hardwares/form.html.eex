@@ -13,8 +13,8 @@
 <% end %>
 <form 
   action="<%= if @hardware.id, 
-     do: HardwareZone.Router.hardwares_path(:update, @hardware.id), 
-     else: HardwareZone.Router.hardwares_path(:create) %>" 
+     do: hardwares_path(:update, @hardware.id), 
+     else: hardwares_path(:create) %>" 
   method="post" 
   enctype="multipart/form-data">
 
@@ -52,6 +52,6 @@
 
   <button type="submit" class="btn btn-primary">Save</button>
   &nbsp;&nbsp;or
-  <a href='<%= HardwareZone.Router.hardwares_path(:index) %>'>Cancel</a>
+  <a href='<%= hardwares_path(:index) %>'>Cancel</a>
 </form>
 <br/>

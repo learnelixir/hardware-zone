@@ -4,8 +4,9 @@ defmodule HardwareZone.Mixfile do
   def project do
     [ app: :hardware_zone,
       version: "0.0.1",
-      elixir: "~> 1.0.0-rc1",
+      elixir: "~> 1.0.0",
       elixirc_paths: ["lib", "web"],
+      compilers: [:phoenix] ++ Mix.compilers,
       deps: deps ]
   end
 
@@ -24,11 +25,11 @@ defmodule HardwareZone.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      {:phoenix, "0.4.1"},
+      {:phoenix, "0.5.0"},
       {:cowboy, "~> 1.0.0"},
       {:postgrex, "~> 0.5"},
       {:ecto, "~> 0.2.0"},
-      {:plug, "~> 0.7"},
+      {:plug, "~> 0.8.1"},
       {:mogrify, "~> 0.1"}
     ]
   end

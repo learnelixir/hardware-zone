@@ -1,5 +1,5 @@
 <br/>
-<a href='<%= HardwareZone.Router.hardwares_path(:index) %>'>&larr; List of Hardwares</a>
+<a href='<%= hardwares_path(:index) %>'>&larr; List of Hardwares</a>
 
 <h1><%= @hardware.name %></h1>
 <div class="row">
@@ -22,10 +22,10 @@
 </div>
 <br/><br/>
 
-<a href='<%= HardwareZone.Router.hardwares_path(:edit, @hardware.id) %>' 
+<a href='<%= hardwares_path(:edit, @hardware.id) %>' 
    class='btn btn-primary'>Edit</a> 
 &nbsp; 
-<a href='<%= HardwareZone.Router.hardwares_path(:destroy, @hardware.id) %>' 
+<a href='<%= hardwares_path(:destroy, @hardware.id) %>' 
    class='btn btn-danger'
    data-confirm="Are you sure that you want to delete this hardware?" 
    data-method="DELETE">Remove</a>

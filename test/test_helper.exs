@@ -1,4 +1,3 @@
-Phoenix.CodeReloader.reload!
 ExUnit.start
 
 defmodule SampleModel do

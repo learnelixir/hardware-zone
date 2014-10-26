@@ -8,6 +8,7 @@ defmodule HardwareZone.Views do
       # This block is expanded within all views for aliases, imports, etc
       import HardwareZone.I18n
       import HardwareZone.Router.Helpers
+      alias Phoenix.Controller.Flash 
     end
   end
 

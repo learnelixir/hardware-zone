@@ -2,7 +2,9 @@ defmodule HardwareZone.HardwaresController do
   use Phoenix.Controller
   alias HardwareZone.Hardware
   alias HardwareZone.Repo
-  alias HardwareZone.Router
+  import HardwareZone.Router.Helpers
+
+  plug :action
 
   def index(conn, _params) do
     hardwares = HardwareZone.Queries.all_hardwares
@@ -20,7 +22,7 @@ defmodule HardwareZone.HardwaresController do
       [] ->
         hardware = Repo.insert(hardware)
         upload_photo_attachment(hardware, atomized_keys_params, :photo)
-        redirect conn, Router.hardwares_path(:show, hardware.id)
+        redirect conn, hardwares_path(:show, hardware.id)
       errors ->
         render conn, "new", hardware: hardware, errors: errors
     end
@@ -31,7 +33,7 @@ defmodule HardwareZone.HardwaresController do
       hardware when is_map(hardware) ->
         render conn, "show", hardware: hardware
       _ -> 
-        redirect conn, Router.hardwares_path(:index)
+        redirect conn, hardwares_path(:index)
     end
   end
 
@@ -40,7 +42,7 @@ defmodule HardwareZone.HardwaresController do
       hardware when is_map(hardware) ->
         render conn, "edit", hardware: hardware
       _ ->
-        redirect conn, Router.hardwares_path(:index)
+        redirect conn, hardwares_path(:index)
     end
   end
 
@@ -53,12 +55,12 @@ defmodule HardwareZone.HardwaresController do
           [] -> 
             Repo.update(hardware)
             upload_photo_attachment(hardware, atomized_keys_params, :photo)
-            redirect conn, Router.hardwares_path(:show, hardware.id)
+            redirect conn, hardwares_path(:show, hardware.id)
           errors -> 
             render conn, "edit", hardware: hardware, errors: errors
         end
       _ ->
-        redirect conn, Router.hardwares_path
+        redirect conn, hardwares_path(:index)
     end
   end
 
@@ -66,9 +68,9 @@ defmodule HardwareZone.HardwaresController do
     case Repo.get(Hardware, String.to_integer(id)) do
       hardware when is_map(hardware) ->
         Repo.delete(hardware)
-        redirect conn, Router.hardwares_path(:index)
+        redirect conn, hardwares_path(:index)
       _ ->
-        redirect conn, Router.hardwares_path(:index)
+        redirect conn, hardwares_path(:index)
     end
   end
   
@@ -86,7 +88,7 @@ defmodule HardwareZone.HardwaresController do
         styles: %{ thumb: "100x100>", large: "300x300>" }
       })
       hardware = Map.delete(hardware, :photo)
-      result = Repo.update(hardware)
+      Repo.update(hardware)
     end
   end
 end
