@@ -18,4 +18,4 @@ config :phoenix, HardwareZone.Router,
 
 config :logger, :console,
   level: :info
-~  
+
