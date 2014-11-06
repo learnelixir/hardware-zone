@@ -29,7 +29,7 @@ defmodule HardwareZone.Mixfile do
       {:cowboy, "~> 1.0.0"},
       {:postgrex, "~> 0.5"},
       {:ecto, "~> 0.2.0"},
-      {:plug, "~> 0.8.1"},
+      {:inflex, "~> 0.2.5"},
       {:mogrify, "~> 0.1"}
     ]
   end

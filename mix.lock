@@ -2,6 +2,7 @@
   "cowlib": {:hex, :cowlib, "1.0.0"},
   "decimal": {:hex, :decimal, "0.2.5"},
   "ecto": {:hex, :ecto, "0.2.5"},
+  "inflex": {:hex, :inflex, "0.2.9"},
   "linguist": {:hex, :linguist, "0.1.2"},
   "mogrify": {:hex, :mogrify, "0.1.0"},
   "phoenix": {:hex, :phoenix, "0.5.0"},
