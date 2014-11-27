@@ -1,4 +1,3 @@
 defmodule HardwareZone.PageView do
-  use HardwareZone.Views
-
+  use HardwareZone.View
 end

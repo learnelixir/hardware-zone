@@ -132,7 +132,7 @@ defmodule Mix.Tasks.Potion do
     """
 
     embed_template :model, """
-    defmodule <%= @model_name %> do
+    defmodule <%= inspect @model_name %> do
       use Ecto.Model
 
       schema "<%= @table_name %>" do

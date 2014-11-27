@@ -8,11 +8,11 @@ defmodule HardwareZone.HardwaresController do
 
   def index(conn, _params) do
     hardwares = HardwareZone.Queries.all_hardwares
-    render conn, "index", hardwares: hardwares
+    render conn, "index.html", hardwares: hardwares
   end
 
   def new(conn, _params) do
-    render conn, "new", hardware: %Hardware{}
+    render conn, "new.html", hardware: %Hardware{}
   end
 
   def create(conn, %{"hardware" => params}) do
@@ -22,27 +22,27 @@ defmodule HardwareZone.HardwaresController do
       [] ->
         hardware = Repo.insert(hardware)
         upload_photo_attachment(hardware, atomized_keys_params, :photo)
-        redirect conn, hardwares_path(:show, hardware.id)
+        redirect conn, to: hardwares_path(:show, hardware.id)
       errors ->
-        render conn, "new", hardware: hardware, errors: errors
+        render conn, "new.html", hardware: hardware, errors: errors
     end
   end
 
   def show(conn, %{"id" => id}) do
     case Repo.get(Hardware, String.to_integer(id)) do
       hardware when is_map(hardware) ->
-        render conn, "show", hardware: hardware
+        render conn, "show.html", hardware: hardware
       _ -> 
-        redirect conn, hardwares_path(:index)
+        redirect conn, to: hardwares_path(:index)
     end
   end
 
   def edit(conn, %{"id" => id}) do
     case Repo.get(Hardware, String.to_integer(id)) do
       hardware when is_map(hardware) ->
-        render conn, "edit", hardware: hardware
+        render conn, "edit.html", hardware: hardware
       _ ->
-        redirect conn, hardwares_path(:index)
+        redirect conn, to: hardwares_path(:index)
     end
   end
 
@@ -55,12 +55,12 @@ defmodule HardwareZone.HardwaresController do
           [] -> 
             Repo.update(hardware)
             upload_photo_attachment(hardware, atomized_keys_params, :photo)
-            redirect conn, hardwares_path(:show, hardware.id)
+            redirect conn, to: hardwares_path(:show, hardware.id)
           errors -> 
-            render conn, "edit", hardware: hardware, errors: errors
+            render conn, "edit.html", hardware: hardware, errors: errors
         end
       _ ->
-        redirect conn, hardwares_path(:index)
+        redirect conn, to: hardwares_path(:index)
     end
   end
 
@@ -68,9 +68,9 @@ defmodule HardwareZone.HardwaresController do
     case Repo.get(Hardware, String.to_integer(id)) do
       hardware when is_map(hardware) ->
         Repo.delete(hardware)
-        redirect conn, hardwares_path(:index)
+        redirect conn, to: hardwares_path(:index)
       _ ->
-        redirect conn, hardwares_path(:index)
+        redirect conn, to: hardwares_path(:index)
     end
   end
   

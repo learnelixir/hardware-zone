@@ -13,7 +13,7 @@ use Mix.Config
 
 config :phoenix, HardwareZone.Router,
   url: [host: "estark-sands-7697.herokuapp.com"],
-  http: [port: System.get_env("PORT")],
+  http: [port: System.get_env("PORT") || 4000],
   secret_key_base: "oXLywfYvLeqUBlTmg2ly4HL64UpJycMiwqG2OlN95TM30AwXqXEFbwjAbD/tgnfDDNpqFeEcyCEG9U6SXRROeQ=="
 
 config :logger, :console,

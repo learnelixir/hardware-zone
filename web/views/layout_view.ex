@@ -1,4 +1,3 @@
 defmodule HardwareZone.LayoutView do
-  use HardwareZone.Views
-
+  use HardwareZone.View
 end

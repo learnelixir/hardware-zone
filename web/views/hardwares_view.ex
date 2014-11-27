@@ -1,3 +1,3 @@
 defmodule HardwareZone.HardwaresView do
-  use HardwareZone.Views
+  use HardwareZone.View
 end
